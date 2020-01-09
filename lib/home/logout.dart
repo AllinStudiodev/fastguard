@@ -8,7 +8,7 @@ class Logout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        LogoutItem(Icons.location_on, (Colors.indigo), 'Plotting'),
+        LogoutItem(Icons.exit_to_app, (Colors.indigo), 'Logout'),
       ],
     );
   }

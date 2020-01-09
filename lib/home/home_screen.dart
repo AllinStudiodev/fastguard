@@ -32,10 +32,16 @@ class HomeScreen extends StatelessWidget {
         children: <Widget>[
           UserCard(name: '$name'),
           SizedBox(height: 20),
-          Feature(),
-          Logout(),
-        
-          
+          Row(
+            children: <Widget>[Feature(), Feature(), Feature()],
+          ),
+          Row(
+            children: <Widget>[Feature(), Feature(), Feature()],
+          ),
+          Row(
+            children: <Widget>[Logout(), Logout(), Logout()],
+          )
+
           //ActionsRow(),
           //Settings(),
         ],

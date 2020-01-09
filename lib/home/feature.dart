@@ -9,7 +9,7 @@ class Feature extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        FeatureItem(Icons.location_on, (Colors.indigo), 'Plotting'),
+        FeatureItem(Icons.camera_rear, (Colors.indigo), 'Scan'),
       ],
     );
   }
