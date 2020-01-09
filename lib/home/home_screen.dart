@@ -33,8 +33,8 @@ class HomeScreen extends StatelessWidget {
           UserCard(name: '$name'),
           SizedBox(height: 20),
           Feature(),
-          Feature(),
-          Feature(),
+          Logout(),
+        
           
           //ActionsRow(),
           //Settings(),
