@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:division/division.dart';
 
-class PlotingScreen extends StatelessWidget {
+class TodosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,1 +1,0 @@
-export './ploting_screen.dart';

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:fastguard/authentication_bloc/bloc.dart';
 import 'package:fastguard/user_repository.dart';
 import 'package:fastguard/home/home.dart';
@@ -10,8 +9,10 @@ import 'package:fastguard/splash_screen.dart';
 import 'package:fastguard/simple_bloc_delegate.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized(); //gak ngerti
+  /// https://bloclibrary.dev/#/coreconcepts?id=blocdelegate
   BlocSupervisor.delegate = SimpleBlocDelegate();
+  //ambil user repository untuk proses autentifikasi
   final UserRepository userRepository = UserRepository();
   runApp(
     BlocProvider(

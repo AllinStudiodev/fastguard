@@ -1,4 +1,4 @@
-import 'package:fastguard/ploting/ploting.dart';
+import 'package:fastguard/todos/todos.dart';
 import 'package:flutter/material.dart';
 import 'package:division/division.dart';
 //import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +9,7 @@ class Feature extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        FeatureItem(Icons.camera_rear, (Colors.indigo), 'Scan'),
+        FeatureItem(Icons.atm, (Colors.indigo), 'Todos'),
       ],
     );
   }
@@ -38,7 +38,7 @@ class _FeatureItemState extends State<FeatureItem> {
       gesture: Gestures()
         ..onTap(() => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => PlotingScreen()),
+              MaterialPageRoute(builder: (context) => TodosScreen()),
             )),
       child: Column(
         children: <Widget>[
