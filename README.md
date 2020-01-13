@@ -1,17 +1,26 @@
 # fastguard
 
-A new Flutter project.
+Aplikasi Patroli untuk Fastech
 
-## Getting Started
+# Incident
 
-This project is a starting point for a Flutter application.
+### incident_repository
+    folder yang berfungsi sebagai tempat penyimpanan insiden
 
-A few resources to get you started if this is your first Flutter project:
+### incident_repository.dart
+    file barrel untuk kemudahan export file
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### incident_entity.dart
+    IncidentEntity merepresentasikan struktur koleksi incident yang ada di firestore
+    class ini extent equatable untuk membandingan dua objek yang berbeda instance
+    https://pub.dev/packages/equatable
+    toJson formJson untuk konversi ke json, karena objek dart harus dikonversikan ke json format sebelum bisa dibaca firestore
+    toDocument formSnapshot spesifik untuk firestore 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# fastguard
+### incident_model.dart
+    model berisi plain dart class, memisahkan entitas dan model berguna ketika kita switch data provider, jadi hanya ganti toEntity dan from Entity dari model layer
+
+### firebase_incident_repository.dart
+    berisi kueri untuk mengintergrasikan aplikasi kita dengan firebase
+
+
