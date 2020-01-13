@@ -1,12 +1,13 @@
+import 'package:fastguard/todos/todos.dart';
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fastguard/authentication_bloc/bloc.dart';
-import 'package:fastguard/user_repository.dart';
+import 'package:fastguard/user_repository/user_repository.dart';
 import 'package:fastguard/home/home.dart';
 import 'package:fastguard/login/login.dart';
-import 'package:fastguard/splash_screen.dart';
-import 'package:fastguard/simple_bloc_delegate.dart';
+import 'package:fastguard/core/splash_screen.dart';
+import 'package:fastguard/core/simple_bloc_delegate.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); //gak ngerti
@@ -38,17 +39,25 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.indigo,
       ),
-      home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-        builder: (context, state) {
-          if (state is Unauthenticated) {
-            return LoginScreen(userRepository: _userRepository);
-          }
-          if (state is Authenticated) {
-            return HomeScreen(name: state.displayName);
-          }
-          return SplashScreen();
+      routes: {
+        '/': (context) {
+          return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+            builder: (context, state) {
+              if (state is Unauthenticated) {
+                return LoginScreen(userRepository: _userRepository);
+              }
+              if (state is Authenticated) {
+                return HomeScreen(name: state.displayName);
+              }
+              return SplashScreen();
+            },
+          );
         },
-      ),
+        '/todo' :(context){
+          return TodosApp();
+        }
+        
+      },
     );
   }
 }

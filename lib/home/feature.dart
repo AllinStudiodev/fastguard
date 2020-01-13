@@ -1,8 +1,10 @@
-import 'package:fastguard/todos/todos.dart';
+//import 'package:fastguard/todos/todos.dart';
+//import 'package:fastguard/todos/todos_repository/todos_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:division/division.dart';
 //import 'package:flutter_bloc/flutter_bloc.dart';
 //import 'package:fastguard/authentication_bloc/bloc.dart';
+//import 'package:fastguard/todos/todos.dart';
 
 class Feature extends StatelessWidget {
   @override
@@ -33,13 +35,10 @@ class _FeatureItemState extends State<FeatureItem> {
   Widget build(BuildContext context) {
     return Parent(
       style: featureItemStyle,
-      //gesture: Gestures()..onTap(() => print("sukses")),
-      //BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut())),
+      // gesture: Gestures()..onTap(() =>
+      // BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut())),
       gesture: Gestures()
-        ..onTap(() => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => TodosScreen()),
-            )),
+        ..onTap(() => Navigator.pushNamed(context, '/todo')),
       child: Column(
         children: <Widget>[
           Parent(
@@ -74,5 +73,3 @@ class _FeatureItemState extends State<FeatureItem> {
     //..bold()
     ..fontSize(20);
 }
-
-
