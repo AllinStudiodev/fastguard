@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fastguard/todos/blocs/blocs.dart';
 import 'package:fastguard/todos/widgets/widgets.dart';
-import 'package:fastguard/todos/screens/screens.dart';
+import 'package:fastguard/todos/pages/pages.dart';
 
 class FilteredTodos extends StatelessWidget {
   FilteredTodos({Key key}) : super(key: key);
@@ -34,7 +34,7 @@ class FilteredTodos extends StatelessWidget {
                 onTap: () async {
                   final removedTodo = await Navigator.of(context).push(
                     MaterialPageRoute(builder: (_) {
-                      return DetailsScreen(id: todo.id);
+                      return DetailsPage(id: todo.id);
                     }),
                   );
                   if (removedTodo != null) {

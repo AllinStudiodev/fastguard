@@ -5,9 +5,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fastguard/todos/todos_repository/todos_repository.dart';
-import 'todo_entity.dart';
-import 'todo_model.dart';
+import 'todos_repository.dart';
 
 class TodosRepository {
   final todoCollection = Firestore.instance.collection('todos');

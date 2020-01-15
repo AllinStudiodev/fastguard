@@ -1,26 +1,14 @@
+//import 'package:fastguard/home/widgets/home.dart';
 import 'package:flutter/material.dart';
 import 'package:division/division.dart';
 //import 'package:flutter_bloc/flutter_bloc.dart';
 
 //import 'package:fastguard/authentication_bloc/bloc.dart';
-import 'package:fastguard/home/home.dart';
+import 'package:fastguard/home/widgets/widgets.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomePage extends StatelessWidget {
   final String name;
-  HomeScreen({Key key, @required this.name}) : super(key: key);
-
-  ///style untuk konten
-  final contentStyle = (BuildContext context) => ParentStyle()
-    ..overflow.scrollable()
-    ..padding(vertical: 20, horizontal: 10)
-    ..minHeight(MediaQuery.of(context).size.height - (2 * 30));
-
-  ///style untuk text
-  final titleStyle = TxtStyle()
-    ..bold()
-    ..fontSize(32)
-    ..margin(bottom: 20)
-    ..alignmentContent.centerLeft();
+  HomePage({Key key, @required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +24,6 @@ class HomeScreen extends StatelessWidget {
             children: <Widget>[Feature(), Feature(), Feature()],
           ),
           Row(
-            children: <Widget>[Feature(), Feature(), Feature()],
-          ),
-          Row(
             children: <Widget>[Logout(), Logout(), Logout()],
           )
 
@@ -49,3 +34,16 @@ class HomeScreen extends StatelessWidget {
     )));
   }
 }
+
+///style untuk konten
+final contentStyle = (BuildContext context) => ParentStyle()
+  ..overflow.scrollable()
+  ..padding(vertical: 20, horizontal: 10)
+  ..minHeight(MediaQuery.of(context).size.height - (2 * 30));
+
+///style untuk text
+final titleStyle = TxtStyle()
+  ..bold()
+  ..fontSize(32)
+  ..margin(bottom: 20)
+  ..alignmentContent.centerLeft();

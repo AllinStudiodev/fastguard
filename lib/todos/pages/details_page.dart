@@ -2,12 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fastguard/todos/blocs/todos/todos.dart';
-import 'package:fastguard/todos/screens/screens.dart';
+import 'package:fastguard/todos/pages/pages.dart';
 
-class DetailsScreen extends StatelessWidget {
+class DetailsPage extends StatelessWidget {
   final String id;
 
-  DetailsScreen({Key key, @required this.id}) : super(key: key);
+  DetailsPage({Key key, @required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +91,7 @@ class DetailsScreen extends StatelessWidget {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) {
-                          return AddEditScreen(
+                          return AddEditPage(
                             onSave: (task, note) {
                               BlocProvider.of<TodosBloc>(context).add(
                                 UpdateTodo(

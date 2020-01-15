@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fastguard/user_repository/user_repository.dart';
 import 'package:fastguard/login/login.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   final UserRepository _userRepository;
 
-  LoginScreen({Key key, @required UserRepository userRepository})
+  LoginPage({Key key, @required UserRepository userRepository})
       : assert(userRepository != null),
         _userRepository = userRepository,
         super(key: key);

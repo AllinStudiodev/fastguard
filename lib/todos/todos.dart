@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 //import 'package:flutter_firestore_todos/blocs/authentication_bloc/bloc.dart';
 import 'package:fastguard/todos/todos_repository/todos_repository.dart';
 import 'package:fastguard/todos/blocs/blocs.dart';
-import 'package:fastguard/todos/screens/screens.dart';
+import 'package:fastguard/todos/pages/pages.dart';
 //import 'package:user_repository/user_repository.dart';
 import 'package:fastguard/core/simple_bloc_delegate.dart';
 
@@ -50,7 +50,7 @@ class TodosApp extends StatelessWidget {
             
           
           '/addTodo': (context) {
-            return AddEditScreen(
+            return AddEditPage(
               onSave: (task, note) {
                 BlocProvider.of<TodosBloc>(context).add(
                   AddTodo(Todo(task, note: note)),

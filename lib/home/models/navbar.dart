@@ -1,0 +1,1 @@
+enum NavbarItems { Red, Green, Blue }

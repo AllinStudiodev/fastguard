@@ -4,12 +4,12 @@ import 'package:fastguard/todos/todos_repository/todos_repository.dart';
 
 typedef OnSaveCallback = Function(String task, String note);
 
-class AddEditScreen extends StatefulWidget {
+class AddEditPage extends StatefulWidget {
   final bool isEditing;
   final OnSaveCallback onSave;
   final Todo todo;
 
-  AddEditScreen({
+  AddEditPage({
     Key key,
     @required this.onSave,
     @required this.isEditing,
@@ -17,10 +17,10 @@ class AddEditScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _AddEditScreenState createState() => _AddEditScreenState();
+  _AddEditPageState createState() => _AddEditPageState();
 }
 
-class _AddEditScreenState extends State<AddEditScreen> {
+class _AddEditPageState extends State<AddEditPage> {
   static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   String _task;
