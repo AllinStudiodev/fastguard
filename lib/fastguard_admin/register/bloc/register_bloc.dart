@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:fastguard/user_repository/user_repository.dart';
+import 'package:fastguard/repository/user_repository/user_repository.dart';
 import 'package:fastguard/fastguard_admin/register/register.dart';
 import 'package:fastguard/core/validators.dart';
 

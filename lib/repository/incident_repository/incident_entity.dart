@@ -6,7 +6,7 @@ class IncidentEntity extends Equatable {
   final String foto;
   final String incident;
   final String lokasi;
-  final DateTime timestamp;
+  final String timestamp;
   final String username;
   final String tipeIncident;
 
@@ -21,7 +21,7 @@ class IncidentEntity extends Equatable {
       "lokasi": lokasi,
       "timestamp": timestamp,
       "username": username,
-      "tipeIncident": tipeIncident
+      "tipe_incident": tipeIncident
     };
   }
 
@@ -40,9 +40,9 @@ class IncidentEntity extends Equatable {
       json["foto"] as String,
       json["incident"] as String,
       json["lokasi"] as String,
-      json["timestamp"] as DateTime,
+      json["timestamp"] as String,
       json["username"] as String,
-      json["tipeIncident"] as String,
+      json["tipe_incident"] as String,
     );
   }
 
@@ -54,7 +54,7 @@ class IncidentEntity extends Equatable {
       snap.data['lokasi'],
       snap.data['timestamp'],
       snap.data['username'],
-      snap.data['tipeIncident'],
+      snap.data['tipe_incident'],
     );
   }
 

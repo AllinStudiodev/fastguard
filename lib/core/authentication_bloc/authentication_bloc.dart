@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:fastguard/authentication_bloc/bloc.dart';
-import 'package:fastguard/user_repository/user_repository.dart';
+import 'package:fastguard/core/authentication_bloc/bloc.dart';
+import 'package:fastguard/repository/user_repository/user_repository.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {

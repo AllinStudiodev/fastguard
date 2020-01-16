@@ -8,7 +8,7 @@ class Incident extends Equatable {
   final String foto;
   final String incident;
   final String lokasi;
-  final DateTime timestamp;
+  final String timestamp;
   final String username;
   final String tipeIncident;
 
@@ -24,9 +24,9 @@ class Incident extends Equatable {
       String foto,
       String incident,
       String lokasi,
-      DateTime timestamp,
+      String timestamp,
       String username,
-      List tipeIncident}) {
+      String tipeIncident}) {
     return Incident(
       id ?? this.id,
       foto ?? this.foto,

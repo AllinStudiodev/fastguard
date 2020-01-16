@@ -1,4 +1,4 @@
-import 'package:fastguard/authentication_bloc/bloc.dart';
+import 'package:fastguard/core/authentication_bloc/bloc.dart';
 import 'package:fastguard/fastguard_admin/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

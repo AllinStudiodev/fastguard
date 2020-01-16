@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fastguard/authentication_bloc/bloc.dart';
-import 'package:fastguard/user_repository/user_repository.dart';
+import 'package:fastguard/core/authentication_bloc/bloc.dart';
+import 'package:fastguard/repository/user_repository/user_repository.dart';
 import 'package:fastguard/home/pages/home_page.dart';
 import 'package:fastguard/login/login.dart';
 import 'package:fastguard/core/splash_screen.dart';
 import 'package:fastguard/core/simple_bloc_delegate.dart';
 import 'package:fastguard/fastguard_admin/admin_page.dart';
 import 'package:fastguard/todos/todos.dart';
+import 'package:fastguard/incident/pages/incident_page.dart';
+
+import 'home/bloc/bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); //gak ngerti
@@ -16,14 +19,12 @@ void main() {
   BlocSupervisor.delegate = SimpleBlocDelegate();
   //ambil user repository untuk proses autentifikasi
   final UserRepository userRepository = UserRepository();
-  runApp(
-    BlocProvider(
-      create: (context) => AuthenticationBloc(
-        userRepository: userRepository,
-      )..add(AppStarted()),
-      child: MyApp(userRepository: userRepository),
-    ),
-  );
+  runApp(BlocProvider(
+    create: (context) => AuthenticationBloc(
+      userRepository: userRepository,
+    )..add(AppStarted()),
+    child: MyApp(userRepository: userRepository),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -38,9 +39,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.indigo,
-      ),
+      theme: ThemeData(primarySwatch: Colors.indigo),
       routes: {
         '/': (context) {
           return BlocBuilder<AuthenticationBloc, AuthenticationState>(
@@ -52,7 +51,9 @@ class MyApp extends StatelessWidget {
                 if (state.displayName == "allinstudio.dev@gmail.com")
                   return AdminPage(name: state.displayName);
                 else
-                  return HomePage(name: state.displayName);
+                  return BlocProvider<TabBloc>(
+                      create: (context) => TabBloc(),
+                      child: HomePage(name: state.displayName));
               }
               return SplashPage();
             },
@@ -60,6 +61,9 @@ class MyApp extends StatelessWidget {
         },
         '/todo': (context) {
           return TodosApp();
+        },
+        '/incident': (context) {
+          return IncidentPage();
         },
       },
     );

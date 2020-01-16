@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:division/division.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fastguard/authentication_bloc/bloc.dart';
+import 'package:fastguard/core/authentication_bloc/bloc.dart';
 
 class Settings extends StatelessWidget {
   @override

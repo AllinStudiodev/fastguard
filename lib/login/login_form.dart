@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fastguard/user_repository/user_repository.dart';
-import 'package:fastguard/authentication_bloc/bloc.dart';
+import 'package:fastguard/repository/user_repository/user_repository.dart';
+import 'package:fastguard/core/authentication_bloc/bloc.dart';
 import 'package:fastguard/login/login.dart';
 
 class LoginForm extends StatefulWidget {

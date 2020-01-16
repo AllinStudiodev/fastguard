@@ -1,10 +1,12 @@
-//import 'package:fastguard/home/widgets/home.dart';
+import 'package:fastguard/home/bloc/bloc.dart';
+import 'package:fastguard/home/pages/account_page.dart';
+import 'package:fastguard/home/pages/action_page.dart';
+import 'package:fastguard/home/models/models.dart';
 import 'package:flutter/material.dart';
-import 'package:division/division.dart';
-//import 'package:flutter_bloc/flutter_bloc.dart';
-
-//import 'package:fastguard/authentication_bloc/bloc.dart';
+//import 'package:division/division.dart';
 import 'package:fastguard/home/widgets/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fastguard/core/authentication_bloc/bloc.dart';
 
 class HomePage extends StatelessWidget {
   final String name;
@@ -12,38 +14,28 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-            child: Parent(
-      style: contentStyle(context),
-      child: Column(
-        children: <Widget>[
-          UserCard(name: '$name'),
-          SizedBox(height: 20),
-          Row(
-            children: <Widget>[Feature(), Feature(), Feature()],
-          ),
-          Row(
-            children: <Widget>[Logout(), Logout(), Logout()],
-          )
-
-          //ActionsRow(),
-          //Settings(),
-        ],
-      ),
-    )));
+    return BlocBuilder<TabBloc, AppTab>(builder: (context, activeTab) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('$name'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.exit_to_app),
+              onPressed: () {
+                BlocProvider.of<AuthenticationBloc>(context).add(
+                  LoggedOut(),
+                );
+              },
+            )
+          ],
+        ),
+        body: activeTab == AppTab.action ? ActionPage() : AccountPage(),
+        bottomNavigationBar: TabSelector(
+          activeTab: activeTab,
+          onTabSelected: (tab) =>
+              BlocProvider.of<TabBloc>(context).add(UpdateTab(tab)),
+        ),
+      );
+    });
   }
 }
-
-///style untuk konten
-final contentStyle = (BuildContext context) => ParentStyle()
-  ..overflow.scrollable()
-  ..padding(vertical: 20, horizontal: 10)
-  ..minHeight(MediaQuery.of(context).size.height - (2 * 30));
-
-///style untuk text
-final titleStyle = TxtStyle()
-  ..bold()
-  ..fontSize(32)
-  ..margin(bottom: 20)
-  ..alignmentContent.centerLeft();
