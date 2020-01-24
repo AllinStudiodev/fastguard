@@ -1,17 +1,20 @@
+import 'package:fastguard/home/pages/image_cuk.dart';
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fastguard/core/authentication_bloc/bloc.dart';
+
 import 'package:fastguard/repository/user_repository/user_repository.dart';
+import 'package:fastguard/core/authentication_bloc/bloc.dart';
+import 'package:fastguard/fastguard_admin/admin_page.dart';
 import 'package:fastguard/home/pages/home_page.dart';
 import 'package:fastguard/login/login.dart';
 import 'package:fastguard/core/splash_screen.dart';
 import 'package:fastguard/core/simple_bloc_delegate.dart';
-import 'package:fastguard/fastguard_admin/admin_page.dart';
 import 'package:fastguard/todos/todos.dart';
-import 'package:fastguard/incident/pages/incident_page.dart';
-
-import 'home/bloc/bloc.dart';
+import 'package:fastguard/incident/pages/pages.dart';
+import 'package:fastguard/home/bloc/bloc.dart';
+import 'package:fastguard/incident/bloc/bloc.dart';
+import 'package:fastguard/repository/incident_repository/incident_repository.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); //gak ngerti
@@ -19,10 +22,18 @@ void main() {
   BlocSupervisor.delegate = SimpleBlocDelegate();
   //ambil user repository untuk proses autentifikasi
   final UserRepository userRepository = UserRepository();
-  runApp(BlocProvider(
-    create: (context) => AuthenticationBloc(
-      userRepository: userRepository,
-    )..add(AppStarted()),
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider<AuthenticationBloc>(
+        create: (context) => AuthenticationBloc(
+          userRepository: userRepository,
+        )..add(AppStarted()),
+      ),
+      BlocProvider<IncidentBloc>(
+        create: (context) =>
+            IncidentBloc(incidentRepository: IncidentRepository()),
+      )
+    ],
     child: MyApp(userRepository: userRepository),
   ));
 }
@@ -63,9 +74,12 @@ class MyApp extends StatelessWidget {
           return TodosApp();
         },
         '/incident': (context) {
-          return IncidentPage();
+          return IncidentPage('cuk');
         },
-      },
+        '/image': (context) {
+          return ImageCuk();
+        },
+        },
     );
   }
 }

@@ -9,16 +9,19 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  division: ^0.8.7+2
-  cupertino_icons: ^0.1.2
-  flutter_bloc: ^3.1.0
+  division: ^0.8.7+2 #css
+  cupertino_icons: ^0.1.2 #icon iphone
+  flutter_bloc: ^3.1.0 #bloc
   firebase_auth: ^0.15.0+1
   cloud_firestore: ^0.13.0+1
-  equatable: ^1.0.0
-  meta: ^1.1.6
-  flutter_launcher_icons: ^0.7.4
-  
+  firebase_storage: ^3.1.1 
+  equatable: ^1.0.0 #membandingkan 2 objek yg berbeda instance
+  meta: ^1.1.6 #untuk tag anotation requirement
+  flutter_launcher_icons: ^0.7.4 #launcher icon ada di assets
+  image_picker: ^0.6.3+1 #ambil gambar
+  intl: ^0.16.1 #format tanggal
   #firebase_core: ^0.4.3+2
+  
 
 dev_dependencies:
   flutter_test:

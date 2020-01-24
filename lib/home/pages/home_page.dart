@@ -1,11 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:fastguard/home/bloc/bloc.dart';
 import 'package:fastguard/home/pages/account_page.dart';
-import 'package:fastguard/home/pages/action_page.dart';
+import 'package:fastguard/home/pages/activity_page.dart';
 import 'package:fastguard/home/models/models.dart';
-import 'package:flutter/material.dart';
-//import 'package:division/division.dart';
 import 'package:fastguard/home/widgets/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fastguard/core/authentication_bloc/bloc.dart';
 
 class HomePage extends StatelessWidget {
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
             )
           ],
         ),
-        body: activeTab == AppTab.action ? ActionPage() : AccountPage(),
+        body: activeTab == AppTab.activity ? ActivityPage() : AccountPage(),
         bottomNavigationBar: TabSelector(
           activeTab: activeTab,
           onTabSelected: (tab) =>

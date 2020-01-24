@@ -1,1 +1,1 @@
-enum AppTab { action, account }
+enum AppTab { activity, account }

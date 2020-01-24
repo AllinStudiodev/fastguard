@@ -1,51 +1,47 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fastguard/repository/incident_repository/incident_repository.dart';
+//import 'package:intl/intl.dart';
 
 class IncidentItem extends StatelessWidget {
-  final DismissDirectionCallback onDismissed;
   final GestureTapCallback onTap;
-  final ValueChanged<bool> onCheckboxChanged;
   final Incident incident;
 
   IncidentItem({
     Key key,
-    @required this.onDismissed,
     @required this.onTap,
-    @required this.onCheckboxChanged,
     @required this.incident,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Dismissible(
-      key: Key('__incident_item_${incident.id}'),
-      onDismissed: onDismissed,
-      child: ListTile(
+
+
+//final f = new DateFormat('yyyy-MM-dd hh:mm');
+
+//Text(f.format(new DateTime.fromMillisecondsSinceEpoch(values[index]["start_time"]*1000)));
+
+//final df = new DateFormat('dd-MM-yyyy hh:mm a');
+//print(df.format(new DateTime.fromMillisecondsSinceEpoch(incident.timestamp*1000)));
+//var _timestamp = _date.toString();
+
+    return ListTile(
         onTap: onTap,
-        // leading: Checkbox(
-        //   value: incident.lokasi,
-        //   onChanged: onCheckboxChanged,
-        // ),
         title: Hero(
           tag: '${incident.id}__heroTag',
           child: Container(
             width: MediaQuery.of(context).size.width,
             child: Text(
-              incident.tipeIncident,
+              incident.incident,
               style: Theme.of(context).textTheme.title,
             ),
           ),
         ),
-        subtitle: incident.foto.isNotEmpty
-            ? Text(
-                incident.incident,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.subhead,
-              )
-            : null,
-      ),
-    );
+        subtitle: Text(
+          incident.timestamp,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: Theme.of(context).textTheme.subhead,
+        ));
   }
 }

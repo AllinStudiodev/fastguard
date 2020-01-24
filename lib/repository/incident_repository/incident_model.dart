@@ -9,47 +9,35 @@ class Incident extends Equatable {
   final String incident;
   final String lokasi;
   final String timestamp;
-  final String username;
   final String tipeIncident;
+  final String username;
 
-  Incident(this.id, this.foto, this.incident, this.lokasi, this.timestamp,
-      this.username, this.tipeIncident);
+  Incident(
+    this.id,
+    this.foto,
+    this.incident,
+    this.lokasi,
+    this.timestamp,
+    this.tipeIncident,
+    this.username,
+  );
 
   @override
   List<Object> get props =>
-      [id, foto, incident, lokasi, timestamp, username, tipeIncident];
-
-  Incident copyWith(
-      {String id,
-      String foto,
-      String incident,
-      String lokasi,
-      String timestamp,
-      String username,
-      String tipeIncident}) {
-    return Incident(
-      id ?? this.id,
-      foto ?? this.foto,
-      incident ?? this.incident,
-      lokasi ?? this.lokasi,
-      timestamp ?? this.timestamp,
-      username ?? this.username,
-      tipeIncident ?? this.tipeIncident,
-    );
-  }
+      [id, foto, incident, lokasi, timestamp, tipeIncident, username];
 
   @override
   String toString() {
-    return 'Incident { id: $id, foto: $foto, incident: $incident, lokasi: $lokasi, timestamp: $timestamp, username: $username, tipeIncident: $tipeIncident }';
+    return 'Incident { id: $id, foto: $foto, incident: $incident, lokasi: $lokasi, timestamp: $timestamp, tipeIncident: $tipeIncident, username: $username }';
   }
 
   IncidentEntity toEntity() {
     return IncidentEntity(
-        id, foto, incident, lokasi, timestamp, username, tipeIncident);
+        id, foto, incident, lokasi, timestamp, tipeIncident, username);
   }
 
   static Incident fromEntity(IncidentEntity entity) {
     return Incident(entity.id, entity.foto, entity.incident, entity.lokasi,
-        entity.timestamp, entity.username, entity.tipeIncident);
+        entity.timestamp, entity.tipeIncident, entity.username);
   }
 }

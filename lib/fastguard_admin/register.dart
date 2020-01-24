@@ -64,6 +64,9 @@ class _RegisterState extends State<Register> {
                       if (_fromKey.currentState.validate()) {
                         dynamic result = await _auth
                             .registerWithEmailAndPassword(email, password);
+                        setState(() {
+                          error = 'sukses bikin cuk';
+                        });
                         if (result == null) {
                           setState(() {
                             error = 'error cuk';

@@ -7,11 +7,11 @@ class IncidentEntity extends Equatable {
   final String incident;
   final String lokasi;
   final String timestamp;
-  final String username;
   final String tipeIncident;
+  final String username;
 
   const IncidentEntity(this.id, this.foto, this.incident, this.lokasi,
-      this.timestamp, this.username, this.tipeIncident);
+      this.timestamp, this.tipeIncident, this.username);
 
   Map<String, Object> toJson() {
     return {
@@ -20,18 +20,18 @@ class IncidentEntity extends Equatable {
       "incident": incident,
       "lokasi": lokasi,
       "timestamp": timestamp,
+      "tipe_incident": tipeIncident,
       "username": username,
-      "tipe_incident": tipeIncident
     };
   }
 
   @override
   List<Object> get props =>
-      [id, foto, incident, lokasi, timestamp, username, tipeIncident];
+      [id, foto, incident, lokasi, timestamp, tipeIncident, username];
 
   @override
   String toString() {
-    return 'TodoEntity { id: $id, foto: $foto, incident: $incident, lokasi: $lokasi, timestamp: $timestamp, username: $username, tipeIncident: $tipeIncident }';
+    return 'TodoEntity { id: $id, foto: $foto, incident: $incident, lokasi: $lokasi, timestamp: $timestamp,  tipeIncident: $tipeIncident, username: $username }';
   }
 
   static IncidentEntity fromJson(Map<String, Object> json) {
@@ -41,8 +41,8 @@ class IncidentEntity extends Equatable {
       json["incident"] as String,
       json["lokasi"] as String,
       json["timestamp"] as String,
-      json["username"] as String,
       json["tipe_incident"] as String,
+      json["username"] as String,
     );
   }
 
@@ -53,8 +53,8 @@ class IncidentEntity extends Equatable {
       snap.data['incident'],
       snap.data['lokasi'],
       snap.data['timestamp'],
-      snap.data['username'],
       snap.data['tipe_incident'],
+      snap.data['username'],
     );
   }
 
@@ -64,8 +64,8 @@ class IncidentEntity extends Equatable {
       "incident": incident,
       "lokasi": lokasi,
       "timestamp": timestamp,
+      "tipe_incident": tipeIncident,
       "username": username,
-      "tipeIncident": tipeIncident,
     };
   }
 }
