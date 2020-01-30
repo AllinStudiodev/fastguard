@@ -8,7 +8,7 @@ class AccountPage extends StatelessWidget {
     var date = new DateFormat("dd-MM-yyyy").add_jm().format(_timestamp);
 
     return Center(
-      child: Text(date.toString() + "cuk"),
+      child: Text(date.toString() + "burcuk"),
     );
   }
 }
