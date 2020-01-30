@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fastguard/home/bloc/bloc.dart';
 import 'package:fastguard/home/pages/account_page.dart';
 import 'package:fastguard/home/pages/activity_page.dart';
-import 'package:fastguard/home/models/models.dart';
 import 'package:fastguard/home/widgets/widgets.dart';
 import 'package:fastguard/core/authentication_bloc/bloc.dart';
 

@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:fastguard/home/models/models.dart';
-import './bloc.dart';
+import 'bloc.dart';
 
 class TabBloc extends Bloc<TabEvent, AppTab> {
   @override

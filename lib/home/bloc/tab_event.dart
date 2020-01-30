@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:fastguard/home/models/models.dart';
+
+enum AppTab { activity, account }
 
 abstract class TabEvent extends Equatable {
   const TabEvent();
